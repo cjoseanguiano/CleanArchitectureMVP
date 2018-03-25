@@ -13,12 +13,11 @@ import com.mvp.carlosanguiano.cleanarchitecturemvp.MyAppMVP;
 import com.mvp.carlosanguiano.cleanarchitecturemvp.R;
 import com.mvp.carlosanguiano.cleanarchitecturemvp.data.DataManager;
 import com.mvp.carlosanguiano.cleanarchitecturemvp.ui.main.MainActivity;
-import com.mvp.carlosanguiano.cleanarchitecturemvp.ui.splash.SplashActivity;
 import com.mvp.carlosanguiano.cleanarchitecturemvp.ui.utils.CommonUtils;
 
 public class LoginActivity extends AppCompatActivity implements LoginMvpView {
 
-    LoginPresenter loginPresenter;
+    LoginPresenter<LoginActivity> loginPresenter;
     EditText editTextEmail, editTextPassword;
     Button button;
 
@@ -28,7 +27,7 @@ public class LoginActivity extends AppCompatActivity implements LoginMvpView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         DataManager dataManager = ((MyAppMVP) getApplicationContext()).getDataManager();
-        loginPresenter = new LoginPresenter(dataManager);
+        loginPresenter = new LoginPresenter<>(dataManager);
         loginPresenter.onAttach(this);
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);

@@ -9,7 +9,7 @@ import com.mvp.carlosanguiano.cleanarchitecturemvp.data.DataManager;
 
 
 public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
-    DataManager mDataManager;
+    private DataManager mDataManager;
     private V mMvpView;
 
     public BasePresenter(DataManager mDataManager) {
